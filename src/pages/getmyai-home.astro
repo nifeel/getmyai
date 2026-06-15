@@ -1,0 +1,315 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const quickStartCode = `curl https://api.getmyai.shop/v1/chat/completions \\
+  -H "Authorization: Bearer YOUR_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "model": "gpt-4o-mini",
+    "messages": [{"role": "user", "content": "Hello"}],
+    "stream": true
+  }'`;
+
+const providers = [
+  { name: "OpenAI", mark: "O", icon: "", tone: "openai" },
+  { name: "Claude", mark: "C", icon: "https://cdn.simpleicons.org/anthropic/f97316", tone: "claude" },
+  { name: "Gemini", mark: "G", icon: "https://cdn.simpleicons.org/googlegemini/8b5cf6", tone: "gemini" },
+  { name: "DeepSeek", mark: "D", icon: "https://cdn.simpleicons.org/deepseek/2563eb", tone: "deepseek" },
+  { name: "Qwen", mark: "Q", icon: "https://cdn.simpleicons.org/alibabacloud/0ea5e9", tone: "qwen" },
+  { name: "Kimi", mark: "K", icon: "https://cdn.simpleicons.org/moonrepo/a78bfa", tone: "kimi" },
+  { name: "GLM", mark: "Z", icon: "", tone: "glm" },
+  { name: "Grok", mark: "X", icon: "https://cdn.simpleicons.org/x/e5e7eb", tone: "grok" },
+  { name: "Mistral", mark: "M", icon: "https://cdn.simpleicons.org/mistralai/f97316", tone: "mistral" },
+  { name: "Llama", mark: "L", icon: "https://cdn.simpleicons.org/meta/38bdf8", tone: "llama" }
+];
+
+const tools = [
+  { name: "Codex", mark: "CX", icon: "", tone: "openai" },
+  { name: "Claude Code", mark: "CC", icon: "https://cdn.simpleicons.org/anthropic/f97316", tone: "claude" },
+  { name: "OpenCode", mark: "OC", icon: "https://cdn.simpleicons.org/opencode/22d3ee", tone: "deepseek" },
+  { name: "Cursor", mark: "CR", icon: "https://cdn.simpleicons.org/cursor/ffffff", tone: "grok" },
+  { name: "VS Code", mark: "VS", icon: "", tone: "deepseek" },
+  { name: "JetBrains", mark: "JB", icon: "https://cdn.simpleicons.org/jetbrains/ffffff", tone: "kimi" },
+  { name: "Windsurf", mark: "WS", icon: "", tone: "qwen" },
+  { name: "MCP", mark: "MP", icon: "https://cdn.simpleicons.org/modelcontextprotocol/22c55e", tone: "glm" }
+];
+
+const marqueeProviders = [...providers, ...providers];
+const marqueeTools = [...tools, ...tools];
+---
+<BaseLayout
+  title="GetMyAI | AI API Gateway"
+  description="稳定的 AI API 中转服务官网，提供模型聚合、OpenAI 兼容接口、教程文档和接入说明。"
+>
+  <section class="hero home-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">AI API Gateway</p>
+      <h1>一个 Key，接入主流 AI 模型</h1>
+      <p class="hero-text">
+        GetMyAI 为开发者、团队和 AI 工具用户提供 OpenAI 兼容接口，统一接入多种主流模型，
+        减少配置成本、切换成本和不可用风险。
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="/docs">立即接入</a>
+        <a class="button-secondary" href="/docs/getting-started">查看快速开始</a>
+      </div>
+      <div class="stats">
+        <article><strong>10+</strong><span>模型来源</span></article>
+        <article><strong>OpenAI</strong><span>兼容接口</span></article>
+        <article><strong>按量</strong><span>灵活计费</span></article>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <p class="meta">Quick Start</p>
+        <pre><code>{quickStartCode}</code></pre>
+        <div class="tag-row">
+          <span class="tag">OpenAI</span>
+          <span class="tag">Claude</span>
+          <span class="tag">Gemini</span>
+          <span class="tag">DeepSeek</span>
+        </div>
+        <div class="signal-grid">
+          <article>
+            <span>Gateway</span>
+            <strong>Ready</strong>
+          </article>
+          <article>
+            <span>Route</span>
+            <strong>Multi Model</strong>
+          </article>
+          <article>
+            <span>Protocol</span>
+            <strong>OpenAI Compatible</strong>
+          </article>
+          <article>
+            <span>Domain</span>
+            <strong>getmyai.shop</strong>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-logo-marquee" aria-label="支持的模型和工具">
+      <div class="logo-row">
+        <div class="logo-track">
+          {marqueeProviders.map((item) => (
+            <article class={`logo-pill provider-${item.tone}`}>
+              <span class="logo-mark">
+                <span class="logo-fallback">{item.mark}</span>
+                {item.icon && <img src={item.icon} alt={`${item.name} logo`} loading="lazy" onerror="this.hidden=true" />}
+              </span>
+              <strong>{item.name}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+      <div class="logo-row logo-row-reverse">
+        <div class="logo-track">
+          {marqueeTools.map((item) => (
+            <article class={`logo-pill provider-${item.tone}`}>
+              <span class="logo-mark">
+                <span class="logo-fallback">{item.mark}</span>
+                {item.icon && <img src={item.icon} alt={`${item.name} logo`} loading="lazy" onerror="this.hidden=true" />}
+              </span>
+              <strong>{item.name}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel section providers-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Model Providers</p>
+        <h2>覆盖主流 AI 服务商</h2>
+      </div>
+      <p class="lead" style="max-width: 44ch; margin: 0;">
+        通过统一的 OpenAI 兼容接口，尽量降低不同模型、不同服务商之间的切换成本。
+      </p>
+    </div>
+
+    <div class="provider-marquee" aria-label="主流 AI 服务商">
+      <div class="provider-track">
+        {marqueeProviders.map((provider) => (
+          <article class={`provider-logo provider-${provider.tone}`}>
+            <span class="provider-mark">
+              <span class="logo-fallback">{provider.mark}</span>
+              {provider.icon && <img src={provider.icon} alt={`${provider.name} logo`} loading="lazy" onerror="this.hidden=true" />}
+            </span>
+            <strong>{provider.name}</strong>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="panel section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Who We Are</p>
+        <h2>我们是谁</h2>
+      </div>
+      <p class="lead" style="max-width: 44ch; margin: 0;">
+        GetMyAI 是面向 AI 开发者和工具用户的 API Gateway 服务。我们不重新发明模型，而是把不同模型来源、不同协议和不同工具接入方式整理成统一、可用、易维护的接口。
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-icon">DEV</span>
+        <h3>个人开发者</h3>
+        <p class="muted">适合日常编程辅助、自动化脚本、AI 小工具和原型项目，快速验证想法。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">AI</span>
+        <h3>AI 工具用户</h3>
+        <p class="muted">适合 Cursor、Codex、Claude Code、OpenCode 等工具，降低配置和切换门槛。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">TEAM</span>
+        <h3>小团队测试</h3>
+        <p class="muted">适合多人共享接入、内部测试环境和需要快速比较不同模型效果的场景。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Why GetMyAI</p>
+        <h2>为什么选择我们</h2>
+      </div>
+      <p class="lead" style="max-width: 44ch; margin: 0;">
+        GetMyAI 的出发点不是包装概念，而是解决我们自己真实遇到过的问题。
+      </p>
+    </div>
+
+    <div class="story-panel">
+      <p>
+        某一天，我们团队在 Claude 周额度用尽后，临时选择了网络中的第三方 API 中转站，并充值近千元。页面标注的是高级模型，但实际体验却明显不符：响应缓慢、能力下降、输出质量和预期差距很大。
+      </p>
+      <p>
+        这类经历让我们意识到，国内 API 中转服务的质量参差不齐。用户真正需要的不是夸张宣传，而是清楚的模型来源、透明的计费方式、稳定的接入体验，以及出现问题时有人负责。
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-icon">MODEL</span>
+        <h3>模型不虚标</h3>
+        <p class="muted">清楚展示可用模型和接入方式，不用低质体验包装成高级模型。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">BILL</span>
+        <h3>价格公开透明</h3>
+        <p class="muted">采用余额和用量记录展示调用消耗，让用户清楚知道费用花在哪里。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">API</span>
+        <h3>共享方案降本</h3>
+        <p class="muted">基于 sub2api 后台的共享方案，把接入和维护成本控制在更合理的范围内。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">SDK</span>
+        <h3>工具接入友好</h3>
+        <p class="muted">兼容 OpenAI API 格式，常见 SDK、脚本和 AI 编程工具可以更低成本迁移。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">HELP</span>
+        <h3>问题有人负责</h3>
+        <p class="muted">遇到模型、额度、响应速度或配置问题时，我们把排查和说明放在服务的一部分。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">TRUST</span>
+        <h3>信任换责任</h3>
+        <p class="muted">您给我们一分信任，我们还您一份责任。这是 GetMyAI 运营这项服务的底线。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Billing</p>
+        <h2>收费模式</h2>
+      </div>
+      <p class="lead" style="max-width: 44ch; margin: 0;">
+        采用余额充值、按量扣费模式。用户只为实际调用消耗付费，不需要被复杂套餐绑定。
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <article>
+        <h3>体验用户</h3>
+        <p class="muted">适合测试接口、验证工具配置和体验不同模型效果。</p>
+        <strong class="price">小额试用</strong>
+        <p class="price-note">小额充值，按实际调用消耗。</p>
+      </article>
+      <article>
+        <h3>个人开发者</h3>
+        <p class="muted">适合日常编程辅助、脚本调用和个人项目接入。</p>
+        <strong class="price">余额充值</strong>
+        <p class="price-note">用多少扣多少，适合长期低频使用。</p>
+      </article>
+      <article>
+        <h3>团队用户</h3>
+        <p class="muted">适合多人共享、稳定接入和需要更高额度的内部场景。</p>
+        <strong class="price">专属支持</strong>
+        <p class="price-note">可按额度、并发和支持需求单独沟通。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Start</p>
+        <h2>四步完成接入</h2>
+      </div>
+    </div>
+
+    <div class="article-list">
+      <article>
+        <a class="card-link" href="/docs/getting-started">
+          <h3>1. 获取 API Key</h3>
+          <p class="muted">注册账号并生成访问密钥，工具和 SDK 可以使用同一套接入信息。</p>
+        </a>
+      </article>
+      <article>
+        <a class="card-link" href="/docs/getting-started">
+          <h3>2. 替换 Base URL</h3>
+          <p class="muted">把项目或工具中的接口地址替换为 GetMyAI 的 OpenAI 兼容地址。</p>
+        </a>
+      </article>
+      <article>
+        <a class="card-link" href="/docs/codex/install">
+          <h3>3. 选择工具教程</h3>
+          <p class="muted">按 Codex、Claude Code、OpenCode 等不同工具阅读对应配置文档。</p>
+        </a>
+      </article>
+      <article>
+        <a class="card-link" href="/docs/question/question">
+          <h3>4. 排查常见问题</h3>
+          <p class="muted">遇到模型、代理、流式输出或鉴权问题时，从 FAQ 和文档继续定位。</p>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <footer class="panel section footer">
+    <div>
+      <p class="eyebrow">Ready</p>
+      <h2>先从一个请求开始验证</h2>
+      <p class="lead">从快速开始文档获取接口示例，确认 Key、Base URL 和模型名称可用后，再接入到你的工具或项目。</p>
+    </div>
+    <div class="hero-actions">
+      <a class="button" href="/docs">阅读文档</a>
+      <a class="button-secondary" href="/pricing">查看价格</a>
+    </div>
+  </footer>
+</BaseLayout>

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+
+*.log
+astro_dev.out
+astro_dev.err
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db

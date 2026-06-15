@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DocsSidebar from "../../components/DocsSidebar.astro";
+import DocsToc from "../../components/DocsToc.astro";
+import { getCollection, render } from "astro:content";
+import { docsPath, getDocsGroups } from "../../lib/docs";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("docs");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug.replace(/\/index$/, "") },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const groups = await getDocsGroups();
+const { Content, headings } = await render(entry);
+const currentPath = docsPath(entry);
+---
+<BaseLayout title={`${entry.data.title} | 文档中心`} description={entry.data.description}>
+  <section class="docs-layout">
+    <DocsSidebar groups={groups} currentPath={currentPath} />
+
+    <article class="panel docs-main prose">
+      <p class="eyebrow">{entry.data.group}</p>
+      <h1>{entry.data.title}</h1>
+      <p class="lead">{entry.data.description}</p>
+      {entry.data.tags.length > 0 && (
+        <div class="tag-row" style="margin-bottom: 22px;">
+          {entry.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+      <Content />
+    </article>
+
+    <DocsToc headings={headings} sourceUrl={entry.data.sourceUrl} />
+  </section>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const tutorials = await getCollection("tutorials");
+  return tutorials.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+---
+<BaseLayout title={`${entry.data.title} | 教程中心`} description={entry.data.description}>
+  <section class="panel page-hero">
+    <p class="eyebrow">Tutorial</p>
+    <h1>{entry.data.title}</h1>
+    <p class="lead">{entry.data.description}</p>
+    <div class="tag-row">
+      {entry.data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+    </div>
+  </section>
+
+  <section class="article-shell">
+    <aside class="panel sidebar">
+      <h3>目录</h3>
+      <div class="tag-row" style="display: block; margin-top: 16px;">
+        {headings.map((heading) => (
+          <p style="margin: 0 0 10px;">
+            <a class="muted" href={`#${heading.slug}`}>{heading.text}</a>
+          </p>
+        ))}
+      </div>
+    </aside>
+
+    <article class="panel prose">
+      <Content />
+    </article>
+  </section>
+</BaseLayout>

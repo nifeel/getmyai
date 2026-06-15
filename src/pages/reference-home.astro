@@ -1,0 +1,133 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const referenceUrl = "https://ylscode.com/";
+---
+
+<BaseLayout
+  title="Reference Home | GetMyAI"
+  description="GetMyAI 首页参考预览页，嵌入外部参考站点用于设计对照。"
+>
+  <section class="reference-shell">
+    <div class="reference-head">
+      <div>
+        <p class="eyebrow">Reference Preview</p>
+        <h1>外部首页引用预览</h1>
+        <p class="lead">
+          这里直接嵌入参考站点首页，方便对照布局、滚动效果和内容节奏。后续可以基于这个方向重做成 GetMyAI 自己的首页。
+        </p>
+      </div>
+      <div class="reference-actions">
+        <a class="button" href={referenceUrl} target="_blank" rel="noreferrer">打开原站</a>
+        <a class="button-secondary" href="/preview-home">查看改写版</a>
+      </div>
+    </div>
+
+    <div class="reference-frame-wrap">
+      <iframe
+        src={referenceUrl}
+        title="ylsCode homepage reference"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+      ></iframe>
+      <div class="reference-fallback">
+        <h2>如果页面没有显示</h2>
+        <p>对方网站可能禁止被 iframe 嵌入。可以点击“打开原站”单独查看。</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .reference-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .reference-head,
+    .reference-frame-wrap {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--section-bg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .reference-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px;
+    }
+
+    .reference-head h1 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+    }
+
+    .reference-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+      min-width: 240px;
+    }
+
+    .reference-frame-wrap {
+      position: relative;
+      height: min(78vh, 860px);
+      min-height: 620px;
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .reference-frame-wrap iframe {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 20px;
+      background: #ffffff;
+    }
+
+    .reference-fallback {
+      position: absolute;
+      inset: 10px;
+      z-index: 1;
+      display: grid;
+      place-content: center;
+      padding: 24px;
+      text-align: center;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.12), transparent 48%),
+        var(--surface-strong);
+    }
+
+    .reference-fallback h2 {
+      font-size: 1.35rem;
+    }
+
+    .reference-fallback p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 780px) {
+      .reference-head {
+        display: block;
+        padding: 22px;
+      }
+
+      .reference-actions {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      .reference-frame-wrap {
+        min-height: 560px;
+        border-radius: 22px;
+      }
+    }
+  </style>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import { getCollection } from "astro:content";
+
+const guides = (await getCollection("guides")).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="模型指南 | Nexa Relay" description="AI API 中转服务模型指南">
+  <section class="panel page-hero">
+    <p class="eyebrow">Guides</p>
+    <h1>模型指南</h1>
+    <p class="lead">把模型差异、使用建议和套餐选择放到独立栏目，首页只保留必要结论。</p>
+  </section>
+
+  <section class="panel">
+    <div class="article-list">
+      {guides.map((entry) => (
+        <ArticleCard
+          href={`/guides/${entry.slug}`}
+          title={entry.data.title}
+          description={entry.data.description}
+          meta={entry.data.publishDate.toLocaleDateString("zh-CN")}
+          tags={entry.data.tags}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

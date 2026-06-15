@@ -1,0 +1,43 @@
+---
+import type { DocsEntry } from "../lib/docs";
+import { docsPath } from "../lib/docs";
+
+interface Group {
+  title: string;
+  items: DocsEntry[];
+}
+
+interface Props {
+  groups: Group[];
+  currentPath?: string;
+}
+
+const { groups, currentPath = "" } = Astro.props;
+---
+<aside class="panel docs-sidebar">
+  <div class="docs-sidebar-head">
+    <p class="eyebrow">Documentation</p>
+    <h3>教程目录</h3>
+    <p class="muted">内容由 Markdown 生成，适合持续扩展。</p>
+  </div>
+
+  <nav class="docs-nav">
+    {groups.map((group) => (
+      <section>
+        <p class="docs-group-title">{group.title}</p>
+        <ul>
+          {group.items.map((entry) => {
+            const href = docsPath(entry);
+            return (
+              <li>
+                <a class:list={["docs-link", { active: href === currentPath }]} href={href}>
+                  {entry.data.navTitle ?? entry.data.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))}
+  </nav>
+</aside>

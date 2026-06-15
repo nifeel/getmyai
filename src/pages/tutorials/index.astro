@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import { getCollection } from "astro:content";
+
+const tutorials = (await getCollection("tutorials")).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="教程中心 | Nexa Relay" description="AI API 中转服务教程中心">
+  <section class="panel page-hero">
+    <p class="eyebrow">Tutorials</p>
+    <h1>教程中心</h1>
+    <p class="lead">静态站并不妨碍做教程栏目。每篇内容由 Markdown 生成成独立页面，适合 Cloudflare Pages 部署。</p>
+  </section>
+
+  <section class="panel">
+    <div class="article-list">
+      {tutorials.map((entry) => (
+        <ArticleCard
+          href={`/tutorials/${entry.slug}`}
+          title={entry.data.title}
+          description={entry.data.description}
+          meta={entry.data.publishDate.toLocaleDateString("zh-CN")}
+          tags={entry.data.tags}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

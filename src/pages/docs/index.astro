@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DocsSidebar from "../../components/DocsSidebar.astro";
+import { getDocsEntries, getDocsGroups, docsPath } from "../../lib/docs";
+
+const groups = await getDocsGroups();
+const entries = await getDocsEntries();
+---
+<BaseLayout title="文档中心 | Nexa Relay" description="面向 AI API 中转服务的文档中心和操作教程。">
+  <section class="panel page-hero">
+    <p class="eyebrow">Docs</p>
+    <h1>文档中心</h1>
+    <p class="lead">这一部分按文档站来组织，不再是单页宣传页堆内容。左侧栏目、正文和目录都会由 Markdown 自动生成。</p>
+  </section>
+
+  <section class="docs-layout">
+    <DocsSidebar groups={groups} currentPath="/docs" />
+
+    <div class="panel docs-main">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Sections</p>
+          <h2>栏目总览</h2>
+        </div>
+        <p class="lead" style="max-width: 44ch; margin: 0;">参考了 `docs.ylsagi.io` 的组织方式，把快速开始、Codex、OpenCode、Claude、FAQ 和 MCP 作为独立栏目。</p>
+      </div>
+
+      <div class="docs-landing">
+        {groups.map((group) => (
+          <section class="docs-group-panel">
+            <p class="docs-group-title">{group.title}</p>
+            <h3>{group.items.length} 篇文档</h3>
+            <div class="article-list" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+              {group.items.map((entry) => (
+                <article>
+                  <a class="card-link" href={docsPath(entry)}>
+                    <h3>{entry.data.navTitle ?? entry.data.title}</h3>
+                    <p class="muted">{entry.data.description}</p>
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+
+    <aside class="panel docs-toc">
+      <p class="docs-group-title">已导入</p>
+      <p class="muted">当前共整理了 {entries.length} 篇 Markdown 文档，后续继续新增 `.md` 文件即可扩展。</p>
+      <div class="tag-row">
+        <span class="tag">Markdown</span>
+        <span class="tag">Static</span>
+        <span class="tag">Cloudflare Pages</span>
+      </div>
+    </aside>
+  </section>
+</BaseLayout>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="FAQ | Nexa Relay" description="AI API 中转服务常见问题">
+  <section class="panel page-hero">
+    <p class="eyebrow">FAQ</p>
+    <h1>常见问题</h1>
+    <p class="lead">FAQ 负责解答兼容性、流式响应、部署方式和后续扩展问题。</p>
+  </section>
+  <section class="panel">
+    <div class="faq-grid">
+      <article>
+        <h3>为什么现在只做静态站？</h3>
+        <p class="muted">因为宣传页和教程站的核心是内容展示和 SEO，不需要先引入后台复杂度。</p>
+      </article>
+      <article>
+        <h3>Cloudflare Pages 能部署吗？</h3>
+        <p class="muted">可以。Astro 构建输出 `dist`，直接交给 Cloudflare Pages 托管。</p>
+      </article>
+      <article>
+        <h3>以后还能加后台吗？</h3>
+        <p class="muted">可以。官网继续静态托管，控制台和 API 服务后续独立部署即可。</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

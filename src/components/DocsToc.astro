@@ -1,0 +1,39 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  sourceUrl?: string;
+}
+
+const { headings, sourceUrl } = Astro.props;
+---
+<aside class="panel docs-toc">
+  <p class="docs-group-title">本页目录</p>
+  {headings.length > 0 ? (
+    <ul class="toc-list">
+      {headings
+        .filter((heading) => heading.depth <= 3)
+        .map((heading) => (
+          <li>
+            <a class={`toc-link depth-${heading.depth}`} href={`#${heading.slug}`}>
+              {heading.text}
+            </a>
+          </li>
+        ))}
+    </ul>
+  ) : (
+    <p class="muted">当前页面没有可提取的目录。</p>
+  )}
+
+  {sourceUrl && (
+    <div class="docs-source">
+      <p class="docs-group-title">参考来源</p>
+      <a class="source-link" href={sourceUrl} rel="noreferrer" target="_blank">原始页面</a>
+    </div>
+  )}
+</aside>

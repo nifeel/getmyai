@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const localReference = "/reference/desktop-home.html";
+---
+
+<BaseLayout
+  title="Desktop Home Reference | GetMyAI"
+  description="从桌面 HTML 导入的首页参考页。"
+>
+  <section class="desktop-reference">
+    <div class="desktop-reference-head">
+      <div>
+        <p class="eyebrow">Desktop HTML</p>
+        <h1>桌面保存版首页</h1>
+        <p class="lead">
+          这里引用的是你桌面上的 SingleFile HTML，已复制到项目的 public/reference 目录，后续可以基于它继续拆分和改造。
+        </p>
+      </div>
+      <div class="desktop-reference-actions">
+        <a class="button" href={localReference} target="_blank" rel="noreferrer">全屏打开</a>
+        <a class="button-secondary" href="/preview-home">查看改写版</a>
+      </div>
+    </div>
+
+    <div class="desktop-reference-frame">
+      <iframe src={localReference} title="Desktop saved homepage"></iframe>
+    </div>
+  </section>
+
+  <style>
+    .desktop-reference {
+      display: grid;
+      gap: 18px;
+    }
+
+    .desktop-reference-head,
+    .desktop-reference-frame {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--section-bg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .desktop-reference-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px;
+    }
+
+    .desktop-reference-head h1 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+    }
+
+    .desktop-reference-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+      min-width: 240px;
+    }
+
+    .desktop-reference-frame {
+      height: min(80vh, 900px);
+      min-height: 640px;
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .desktop-reference-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 20px;
+      background: #ffffff;
+    }
+
+    @media (max-width: 780px) {
+      .desktop-reference-head {
+        display: block;
+        padding: 22px;
+      }
+
+      .desktop-reference-actions {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      .desktop-reference-frame {
+        min-height: 560px;
+        border-radius: 22px;
+      }
+    }
+  </style>
+</BaseLayout>
