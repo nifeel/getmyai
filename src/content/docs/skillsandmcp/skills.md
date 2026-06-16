@@ -5,7 +5,7 @@ description: 给 AI 编码助手补充技能包，扩展前端和调试能力。
 group: 扩展 Skills 和 MCP
 groupOrder: 6
 pageOrder: 2
-sourceUrl: https://docs.ylsagi.io/skillsandmcp/skills
+sourceUrl: https://getmyai.shop/docs/skillsandmcp/skills
 tags:
   - skills
   - mcp

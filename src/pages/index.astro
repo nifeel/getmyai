@@ -1,12 +1,15 @@
 ---
 import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 
-const currentDir = dirname(fileURLToPath(import.meta.url));
-const sourceHtml = readFileSync(join(currentDir, "../../public/reference/dark-home.html"), "utf-8");
+const sourceHtml = readFileSync(join(process.cwd(), "src/reference/dark-home.html"), "utf-8");
+const siteUrl = "https://getmyai.shop";
 const getmyAiLogoSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="18" y1="14" x2="110" y2="116" gradientUnits="userSpaceOnUse"><stop stop-color="#7dd3fc"/><stop offset=".48" stop-color="#38bdf8"/><stop offset="1" stop-color="#2563eb"/></linearGradient><linearGradient id="s" x1="42" y1="28" x2="88" y2="99" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#dff7ff"/></linearGradient></defs><rect x="8" y="8" width="112" height="112" rx="30" fill="url(#g)"/><path d="M32 70c0-24 15-42 35-42 14 0 25 7 31 19l-15 8c-3-7-8-11-16-11-11 0-19 10-19 26s8 25 20 25c8 0 14-4 17-11h-19V70h36v8c0 20-14 34-34 34-22 0-36-17-36-42Z" fill="url(#s)"/><path d="M30 28h18l15 26 15-26h18L72 66v33H54V66L30 28Z" fill="#eafaff" opacity=".92"/><circle cx="96" cy="32" r="8" fill="#e0f7ff"/><circle cx="104" cy="52" r="4" fill="#bfebff" opacity=".86"/></svg>`;
 const getmyAiLogo = `data:image/svg+xml,${encodeURIComponent(getmyAiLogoSvg)}`;
+const faviconTags = `
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">`;
 const accentHtml = sourceHtml
   .replaceAll("#22b573", "#38bdf8")
   .replaceAll("#23c08e", "#38bdf8")
@@ -21,7 +24,26 @@ const brandedHtml = accentHtml
   .replace(/(<a href=https:\/\/ylscode\.com\/ class="router-link-active router-link-exact-active logo"[^>]*>[\s\S]*?<div[^>]*>)[\s\S]*?(<\/div><\/a><nav class=centerNav)/, `$1GetMyAI$2`)
   .replace(/<img class=logo loading=lazy src="data:image\/png;base64,[^"]+" alt=[^>]*>/, `<img class=logo loading=lazy src="${getmyAiLogo}" alt="GetMyAI 标志" data-v-466ece80>`)
   .replaceAll("伊莉思AGI", "GetMyAI")
-  .replaceAll("ylsCode", "GetMyAI");
+  .replaceAll("ylsCode", "GetMyAI")
+  .replaceAll("https://code.ylsagi.com/img/logo2.png", `${siteUrl}/favicon.svg`)
+  .replaceAll("https://docs.ylsagi.io", `${siteUrl}/docs`)
+  .replaceAll("docs.ylsagi.io", "getmyai.shop/docs")
+  .replaceAll("https://www.ylscode.com", siteUrl)
+  .replaceAll("https://ylscode.com", siteUrl)
+  .replaceAll("https://code.ylsagi.com", siteUrl)
+  .replaceAll("https://uptime.ylsagi.com/status/claudecode", siteUrl)
+  .replaceAll("https://ylsagi.com", siteUrl)
+  .replaceAll("https://t.me/ylsagi", siteUrl)
+  .replaceAll("https://www.youtube.com/@ylsapp", siteUrl)
+  .replaceAll("mailto:code@ylsagi.com", "mailto:support@getmyai.shop")
+  .replaceAll("code@ylsagi.com", "support@getmyai.shop")
+  .replaceAll("code.ylsagi.com", "getmyai.shop")
+  .replaceAll("ylscode.com", "getmyai.shop")
+  .replaceAll("ylsagi.com", "getmyai.shop")
+  .replaceAll("ELISE AGI LTD", "GetMyAI");
+const faviconHtml = brandedHtml
+  .replace(/<link[^>]*rel=(?:"[^"]*\bicon\b[^"]*"|'[^']*\bicon\b[^']*'|[^\s>]*icon[^\s>]*)[^>]*>/gi, "")
+  .replace("</head>", `${faviconTags}</head>`);
 
 const questionsSection = `
 <section class="getmyai-questions-section" aria-label="GetMyAI service overview">
@@ -74,7 +96,7 @@ const questionsSection = `
   </div>
 </section>`;
 
-const cleanedHtml = brandedHtml.replace(
+const cleanedHtml = faviconHtml.replace(
   /<svg height=100% width=100% style=position:fixed;z-index:-99999999>[\s\S]*$/,
   ""
 ).replace(/--vis-pattern-fill[^;]*;/g, "")

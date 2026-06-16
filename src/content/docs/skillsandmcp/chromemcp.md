@@ -5,7 +5,7 @@ description: 用于把 Chrome DevTools 能力暴露给 Claude、Codex、Cursor �
 group: 扩展 Skills 和 MCP
 groupOrder: 6
 pageOrder: 1
-sourceUrl: https://docs.ylsagi.io/skillsandmcp/chromemcp
+sourceUrl: https://getmyai.shop/docs/skillsandmcp/chromemcp
 tags:
   - mcp
   - chrome

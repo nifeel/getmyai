@@ -5,7 +5,7 @@ description: 讲清 OpenCode 的安装、启动方式和升级命令。
 group: OpenCode 配置文档
 groupOrder: 3
 pageOrder: 1
-sourceUrl: https://docs.ylsagi.io/opencode/install
+sourceUrl: https://getmyai.shop/docs/opencode/install
 tags:
   - opencode
   - cli

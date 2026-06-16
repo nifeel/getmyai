@@ -5,7 +5,7 @@ description: 处理 stream disconnected、代理绕行和显式代理环境变�
 group: Codex 配置文档
 groupOrder: 2
 pageOrder: 6
-sourceUrl: https://docs.ylsagi.io/codex/proxy
+sourceUrl: https://getmyai.shop/docs/codex/proxy
 tags:
   - codex
   - proxy

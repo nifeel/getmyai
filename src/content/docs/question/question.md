@@ -5,7 +5,7 @@ description: 集中解释网络中断和 429 限流这类高频问题。
 group: 常见问题
 groupOrder: 5
 pageOrder: 1
-sourceUrl: https://docs.ylsagi.io/question/question
+sourceUrl: https://getmyai.shop/docs/question/question
 tags:
   - faq
   - rate-limit

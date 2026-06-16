@@ -5,7 +5,7 @@ description: 说明 Claude 模型切换、额度差异和 1M 上下文开关。
 group: Claude Code 配置文档
 groupOrder: 4
 pageOrder: 3
-sourceUrl: https://docs.ylsagi.io/claude/model
+sourceUrl: https://getmyai.shop/docs/claude/model
 tags:
   - claude
   - model

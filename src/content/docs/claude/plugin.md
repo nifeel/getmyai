@@ -5,7 +5,7 @@ description: 说明 Claude 插件安装方式和最小配置文件。
 group: Claude Code 配置文档
 groupOrder: 4
 pageOrder: 2
-sourceUrl: https://docs.ylsagi.io/claude/plugin
+sourceUrl: https://getmyai.shop/docs/claude/plugin
 tags:
   - claude
   - plugin
@@ -22,7 +22,7 @@ tags:
 
 ```json
 {
-  "primaryApiKey": "ylscode"
+  "primaryApiKey": "getmyai"
 }
 ```
 

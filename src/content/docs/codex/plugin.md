@@ -5,7 +5,7 @@ description: 让 Codex CLI 的配置直接复用到 IDE 插件场景。
 group: Codex 配置文档
 groupOrder: 2
 pageOrder: 2
-sourceUrl: https://docs.ylsagi.io/codex/plugin
+sourceUrl: https://getmyai.shop/docs/codex/plugin
 tags:
   - codex
   - ide

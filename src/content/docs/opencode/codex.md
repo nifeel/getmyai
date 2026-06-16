@@ -5,7 +5,7 @@ description: 说明 OpenCode 如何通过 OpenAI 兼容供应商接入 Codex 模
 group: OpenCode 配置文档
 groupOrder: 3
 pageOrder: 2
-sourceUrl: https://docs.ylsagi.io/opencode/codex
+sourceUrl: https://getmyai.shop/docs/opencode/codex
 tags:
   - opencode
   - provider
