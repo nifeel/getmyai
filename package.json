@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "sass src/styles/getmyai-home.scss public/getmyai-home.css --no-source-map && astro build",
+    "build": "sass src/styles/getmyai-home.scss public/getmyai-home.css --no-source-map && sass src/styles/getmyai-pricing.scss public/getmyai-pricing.css --no-source-map && astro build",
     "preview": "astro preview"
   },
   "dependencies": {

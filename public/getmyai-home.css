@@ -1,13 +1,22 @@
 .getmyai-question-list {
+  order: 1 !important;
+  align-self: start !important;
+  height: auto !important;
+  min-height: 0 !important;
   padding: 16px !important;
   background: radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.18), transparent 34%), linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(239, 246, 255, 0.82)) !important;
+}
+
+.getmyai-questions-section {
+  grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.58fr) !important;
+  align-items: start !important;
 }
 
 .getmyai-question-tab {
   position: relative;
   isolation: isolate;
-  min-height: 124px !important;
-  padding: 18px 18px 18px 20px !important;
+  min-height: 112px !important;
+  padding: 18px 52px 18px 20px !important;
   border-radius: 18px !important;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(248, 250, 252, 0.72)) !important;
   overflow: hidden;
@@ -20,6 +29,25 @@
   background: linear-gradient(180deg, #38bdf8, #2563eb);
   opacity: 0;
   transition: opacity 0.24s ease;
+}
+.getmyai-question-tab::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  color: #0ea5e9;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 800;
 }
 .getmyai-question-tab span {
   background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(37, 99, 235, 0.12)) !important;
@@ -43,8 +71,16 @@
 .getmyai-question-tab:hover::before, .getmyai-question-tab.active::before {
   opacity: 1;
 }
+.getmyai-question-tab.active::after {
+  content: "-";
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.24), rgba(37, 99, 235, 0.16));
+}
 
 .getmyai-story-card {
+  order: 2 !important;
+  height: auto !important;
+  min-height: 590px !important;
+  overflow: visible !important;
   border: 1px solid rgba(56, 189, 248, 0.18);
   box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.58);
   background: radial-gradient(circle at 14% 8%, rgba(56, 189, 248, 0.2), transparent 32%), radial-gradient(circle at 92% 16%, rgba(37, 99, 235, 0.12), transparent 28%), linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.88)) !important;
@@ -56,6 +92,13 @@
 }
 .getmyai-story-card p {
   max-width: 760px;
+}
+
+.getmyai-tab-panel[hidden] {
+  display: none !important;
+}
+.getmyai-tab-panel.active {
+  display: block !important;
 }
 
 .getmyai-promise {
@@ -127,6 +170,123 @@
   line-height: 1.72 !important;
 }
 
+html.light,
+html:not(.dark) {
+  --yls-dg: linear-gradient(180deg, #fff, #77ddff10, #72ffce10);
+  --yls-dg-2: linear-gradient(317deg, #0ea5e9, #43bff0);
+  --yls-block: #fff;
+  --yls-block-child: #f4f4f4;
+  --yls-color: #333;
+  --yls-text-primary: #111827;
+  --yls-text-secondary: #374151;
+  --yls-text-tertiary: #4b5563;
+  --yls-surface-muted: #f3f4f6;
+  --yls-surface-soft: #f9fafb;
+  --yls-surface-strong: #e5e7eb;
+  --yls-border-soft: #d1d5db;
+  --yls-border-strong: #9ca3af;
+  --yls-overlay-hover: rgba(17, 24, 39, 0.08);
+  --yls-image-border-color: #e5e7eb;
+  --yls-shadow-emphasis: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+html.light body,
+html:not(.dark) body {
+  background: var(--yls-dg) !important;
+  color: var(--yls-color) !important;
+}
+html.light .getmyai-question-list,
+html.light .getmyai-story-card,
+html.light .getmyai-questions-section article,
+html:not(.dark) .getmyai-question-list,
+html:not(.dark) .getmyai-story-card,
+html:not(.dark) .getmyai-questions-section article {
+  border-color: var(--yls-border-soft) !important;
+  background: var(--yls-block) !important;
+  box-shadow: var(--yls-shadow-emphasis) !important;
+}
+html.light .getmyai-question-tab,
+html:not(.dark) .getmyai-question-tab {
+  background: var(--yls-surface-soft) !important;
+  border-color: var(--yls-border-soft) !important;
+}
+html.light .getmyai-question-tab:hover, html.light .getmyai-question-tab.active,
+html:not(.dark) .getmyai-question-tab:hover,
+html:not(.dark) .getmyai-question-tab.active {
+  background: var(--yls-block) !important;
+  border-color: rgba(56, 189, 248, 0.34) !important;
+  box-shadow: 0 14px 32px rgba(56, 189, 248, 0.12) !important;
+}
+html.light .getmyai-story-card h2,
+html.light .getmyai-promise strong,
+html.light .getmyai-questions-section h3,
+html.light .getmyai-question-tab strong,
+html:not(.dark) .getmyai-story-card h2,
+html:not(.dark) .getmyai-promise strong,
+html:not(.dark) .getmyai-questions-section h3,
+html:not(.dark) .getmyai-question-tab strong {
+  color: #0f172a !important;
+}
+html.light .getmyai-story-card p,
+html.light .getmyai-promise span,
+html.light .getmyai-questions-section p,
+html.light .getmyai-question-tab em,
+html:not(.dark) .getmyai-story-card p,
+html:not(.dark) .getmyai-promise span,
+html:not(.dark) .getmyai-questions-section p,
+html:not(.dark) .getmyai-question-tab em {
+  color: #526071 !important;
+}
+html.light .getmyai-promise,
+html:not(.dark) .getmyai-promise {
+  background: var(--yls-surface-soft) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+}
+html.light .features-section .features-grid .feature-card[data-v-f4dcf0aa],
+html:not(.dark) .features-section .features-grid .feature-card[data-v-f4dcf0aa] {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(15, 23, 42, 0.06) !important;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.05) !important;
+}
+html.light .features-section .features-grid .feature-card[data-v-f4dcf0aa]:hover,
+html:not(.dark) .features-section .features-grid .feature-card[data-v-f4dcf0aa]:hover {
+  background: #fff !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1) !important;
+}
+html.light .content-bottom[data-v-466ece80],
+html:not(.dark) .content-bottom[data-v-466ece80] {
+  --footer-bg: #f8fbff;
+  --footer-border: rgba(15, 23, 42, 0.08);
+  --footer-title: #0f172a;
+  --footer-text: #334155;
+  --footer-muted: #526071;
+  --footer-subtle: #64748b;
+  --footer-link: #334155;
+  --footer-action-bg: #e0f2fe;
+  --footer-action-text: #0369a1;
+}
+html.light .modern-footer[data-v-466ece80],
+html.light .content-bottom[data-v-466ece80],
+html:not(.dark) .modern-footer[data-v-466ece80],
+html:not(.dark) .content-bottom[data-v-466ece80] {
+  background: linear-gradient(180deg, #ffffff, #f1f8ff) !important;
+  color: #0f172a !important;
+}
+html.light .brand-name[data-v-466ece80],
+html.light .company-name[data-v-466ece80],
+html:not(.dark) .brand-name[data-v-466ece80],
+html:not(.dark) .company-name[data-v-466ece80] {
+  color: #0f172a !important;
+}
+html.light .copyright[data-v-466ece80],
+html.light .address[data-v-466ece80],
+html.light .service-link[data-v-466ece80],
+html:not(.dark) .copyright[data-v-466ece80],
+html:not(.dark) .address[data-v-466ece80],
+html:not(.dark) .service-link[data-v-466ece80] {
+  color: #526071 !important;
+}
+
 html.dark .getmyai-question-list,
 html.dark .getmyai-story-card,
 html.dark .getmyai-questions-section article {
@@ -163,8 +323,15 @@ html.dark .features-section .features-grid .feature-card[data-v-f4dcf0aa] p[data
 }
 
 @media (max-width: 900px) {
+  .getmyai-questions-section {
+    grid-template-columns: 1fr !important;
+  }
   .getmyai-question-tab {
     min-height: 108px !important;
+  }
+  .getmyai-question-list,
+  .getmyai-story-card {
+    order: initial !important;
   }
   .getmyai-story-card {
     height: auto !important;

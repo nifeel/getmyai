@@ -1,0 +1,175 @@
+---
+interface Props {
+  plan: {
+    name: string;
+    badge?: string;
+    price: string;
+    period: string;
+    description: string;
+    features: string[];
+    action: string;
+    href: string;
+    featured?: boolean;
+    muted?: boolean;
+  };
+}
+
+const { plan } = Astro.props;
+---
+
+<article class:list={["pricing-card", { featured: plan.featured, muted: plan.muted }]}>
+  <div class="pricing-card-head">
+    <div>
+      {plan.badge && <span class="plan-badge">{plan.badge}</span>}
+      <h3>{plan.name}</h3>
+    </div>
+  </div>
+  <p class="plan-description">{plan.description}</p>
+  <div class="plan-price">
+    <strong>{plan.price}</strong>
+    <span>{plan.period}</span>
+  </div>
+  <ul class="plan-features">
+    {plan.features.map((feature) => <li>{feature}</li>)}
+  </ul>
+  <a class:list={["plan-action", { secondary: plan.muted }]} href={plan.href}>{plan.action}</a>
+</article>
+
+<style>
+  .pricing-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 22px;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    background:
+      linear-gradient(135deg, rgba(56, 189, 248, 0.08), transparent 42%),
+      var(--surface-strong);
+    overflow: hidden;
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  }
+
+  .pricing-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent 74%);
+    opacity: 0;
+    transition: opacity 160ms ease;
+  }
+
+  .pricing-card:hover,
+  .pricing-card.featured {
+    border-color: rgba(56, 189, 248, 0.42);
+    box-shadow: 0 24px 56px rgba(56, 189, 248, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .pricing-card:hover::before,
+  .pricing-card.featured::before {
+    opacity: 1;
+  }
+
+  .pricing-card-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .plan-badge {
+    display: inline-flex;
+    margin-bottom: 12px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-size: 0.76rem;
+    font-weight: 800;
+  }
+
+  .plan-description,
+  .plan-features {
+    color: var(--muted);
+    line-height: 1.72;
+  }
+
+  .plan-description {
+    margin: 12px 0 18px;
+    min-height: 76px;
+    font-size: 0.92rem;
+  }
+
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .plan-price strong {
+    font-size: clamp(1.45rem, 2.2vw, 2rem);
+    line-height: 1;
+  }
+
+  .plan-price span {
+    color: var(--muted);
+    font-size: 0.86rem;
+  }
+
+  .plan-features {
+    display: grid;
+    gap: 10px;
+    padding: 0;
+    margin: 0 0 22px;
+    list-style: none;
+    font-size: 0.9rem;
+  }
+
+  .plan-features li {
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .plan-features li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), #2563eb);
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.38);
+  }
+
+  .plan-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin-top: auto;
+    padding: 0 16px;
+    border-radius: 999px;
+    color: #02111d;
+    background: linear-gradient(135deg, #38bdf8, #22d3ee 48%, #60a5fa);
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 18px 34px rgba(56, 189, 248, 0.22);
+  }
+
+  .plan-action.secondary {
+    color: var(--text);
+    background: var(--button-secondary-bg);
+    border: 1px solid var(--line);
+    box-shadow: none;
+  }
+
+  @media (max-width: 720px) {
+    .plan-description {
+      min-height: 0;
+    }
+  }
+</style>

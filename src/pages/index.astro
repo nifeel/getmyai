@@ -2,7 +2,9 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const html = readFileSync(join(process.cwd(), "src/reference/getmyai-home.html"), "utf-8");
+const sourceHtml = readFileSync(join(process.cwd(), "src/reference/getmyai-home.html"), "utf-8");
+const sharedFooter = readFileSync(join(process.cwd(), "src/reference/shared-footer.html"), "utf-8");
+const html = sourceHtml.replace(/<div class=content-bottom\b[\s\S]*?<\/footer>/, sharedFooter);
 ---
 
 <Fragment set:html={html} />
