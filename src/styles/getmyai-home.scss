@@ -424,6 +424,160 @@ html.dark {
   }
 }
 
+html .nav .centerNav .nav-item[data-v-9f810e60],
+html .nav .centerNav .nav-item[data-v-9f810e60] .nav-item-text[data-v-9f810e60],
+html .nav .centerNav .nav-item[data-v-9f810e60] span,
+html .nav .centerNav .nav-item[data-v-9f810e60] font {
+  background: transparent !important;
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: var(--yls-text-primary, #111827) !important;
+  -webkit-text-fill-color: var(--yls-text-primary, #111827) !important;
+}
+
+html .nav .centerNav .nav-item[data-v-9f810e60]:hover,
+html .nav .centerNav .nav-item[data-v-9f810e60]:hover .nav-item-text[data-v-9f810e60],
+html .nav .centerNav .nav-item[data-v-9f810e60]:hover span,
+html .nav .centerNav .nav-item[data-v-9f810e60]:hover font,
+html .nav .centerNav .nav-item.router-link-active[data-v-9f810e60],
+html .nav .centerNav .nav-item.router-link-active[data-v-9f810e60] .nav-item-text[data-v-9f810e60],
+html .nav .centerNav .nav-item.router-link-active[data-v-9f810e60] span,
+html .nav .centerNav .nav-item.router-link-active[data-v-9f810e60] font,
+html .nav .centerNav .nav-item.router-link-exact-active[data-v-9f810e60],
+html .nav .centerNav .nav-item.router-link-exact-active[data-v-9f810e60] .nav-item-text[data-v-9f810e60],
+html .nav .centerNav .nav-item.router-link-exact-active[data-v-9f810e60] span,
+html .nav .centerNav .nav-item.router-link-exact-active[data-v-9f810e60] font {
+  background: transparent !important;
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: $accent !important;
+  -webkit-text-fill-color: $accent !important;
+}
+
+html.dark .nav .centerNav .nav-item[data-v-9f810e60],
+html.dark .nav .centerNav .nav-item[data-v-9f810e60] .nav-item-text[data-v-9f810e60],
+html.dark .nav .centerNav .nav-item[data-v-9f810e60] span,
+html.dark .nav .centerNav .nav-item[data-v-9f810e60] font {
+  background: transparent !important;
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+html.dark .nav .centerNav .nav-item[data-v-9f810e60]:hover,
+html.dark .nav .centerNav .nav-item[data-v-9f810e60]:hover .nav-item-text[data-v-9f810e60],
+html.dark .nav .centerNav .nav-item[data-v-9f810e60]:hover span,
+html.dark .nav .centerNav .nav-item[data-v-9f810e60]:hover font,
+html.dark .nav .centerNav .nav-item.router-link-active[data-v-9f810e60],
+html.dark .nav .centerNav .nav-item.router-link-active[data-v-9f810e60] .nav-item-text[data-v-9f810e60],
+html.dark .nav .centerNav .nav-item.router-link-active[data-v-9f810e60] span,
+html.dark .nav .centerNav .nav-item.router-link-active[data-v-9f810e60] font,
+html.dark .nav .centerNav .nav-item.router-link-exact-active[data-v-9f810e60],
+html.dark .nav .centerNav .nav-item.router-link-exact-active[data-v-9f810e60] .nav-item-text[data-v-9f810e60],
+html.dark .nav .centerNav .nav-item.router-link-exact-active[data-v-9f810e60] span,
+html.dark .nav .centerNav .nav-item.router-link-exact-active[data-v-9f810e60] font {
+  background: transparent !important;
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: $accent !important;
+  -webkit-text-fill-color: $accent !important;
+}
+
+html [data-getmyai-theme-toggle],
+html [data-getmyai-theme-toggle]:hover,
+html [data-getmyai-theme-toggle]:focus,
+html [data-getmyai-theme-toggle]:active,
+html.dark [data-getmyai-theme-toggle],
+html.dark [data-getmyai-theme-toggle]:hover,
+html.dark [data-getmyai-theme-toggle]:focus,
+html.dark [data-getmyai-theme-toggle]:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+html [data-getmyai-theme-toggle] .iconify,
+html [data-getmyai-theme-toggle] span,
+html.dark [data-getmyai-theme-toggle] .iconify,
+html.dark [data-getmyai-theme-toggle] span {
+  background-color: currentColor !important;
+  background-image: none !important;
+  color: inherit !important;
+}
+
+html .sticky-widget[data-v-1ff4e71c],
+html .sticky-widget[data-v-1ff4e71c] .nav[data-v-9f810e60] {
+  background: rgba(255, 255, 255, 0.86) !important;
+  border-bottom-color: #e2e8f0 !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+html.dark .sticky-widget[data-v-1ff4e71c],
+html.dark .sticky-widget[data-v-1ff4e71c] .nav[data-v-9f810e60] {
+  background: #1a1a1a !important;
+  border-bottom-color: #333 !important;
+}
+
+html [data-getmyai-theme-toggle],
+html [data-getmyai-theme-toggle] .iconify {
+  color: #111827 !important;
+}
+
+html.dark [data-getmyai-theme-toggle],
+html.dark [data-getmyai-theme-toggle] .iconify {
+  color: #f8fafc !important;
+}
+
+html .nav .authEntry[data-v-9f810e60] {
+  display: flex !important;
+  align-items: center !important;
+}
+
+html .nav .authBtn[data-v-9f810e60] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 32px !important;
+  padding: 6px 14px !important;
+  border: 1px solid rgba(56, 189, 248, 0.32) !important;
+  border-radius: 999px !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #0369a1 !important;
+  box-shadow: 0 10px 24px rgba(56, 189, 248, 0.14) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+html .nav .authBtn[data-v-9f810e60] font,
+html .nav .authBtn[data-v-9f810e60] span {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+html .nav .authBtn[data-v-9f810e60]:hover {
+  background: rgba(56, 189, 248, 0.18) !important;
+  border-color: rgba(56, 189, 248, 0.46) !important;
+  transform: translateY(-1px);
+}
+
+html.dark .nav .authBtn[data-v-9f810e60] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #f8fafc !important;
+  box-shadow: none !important;
+}
+
+html.dark .nav .authBtn[data-v-9f810e60]:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
 @media (max-width: 900px) {
   .getmyai-questions-section {
     grid-template-columns: 1fr !important;
