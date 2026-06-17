@@ -1,3 +1,18 @@
+.brand-title,
+.brand-title[data-v-42a71624] {
+  background-image: linear-gradient(45deg, #0f172a, #334155, #64748b, #38bdf8, #7dd3fc, #38bdf8, #64748b, #334155, #0f172a) !important;
+  background-position: 0 50%;
+  background-size: 300% 100% !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+html.dark .brand-title,
+html.dark .brand-title[data-v-42a71624] {
+  background-image: linear-gradient(45deg, #fff, #e2e8f0, #a0aec0, #38bdf8, #7dd3fc, #38bdf8, #a0aec0, #e2e8f0, #fff) !important;
+}
+
 .getmyai-question-list {
   order: 1 !important;
   align-self: start !important;

@@ -3,7 +3,7 @@ export const site = {
   url: "https://getmyai.shop",
   domain: "getmyai.shop",
   company: {
-    name: "上海盖特埃科技有限公司",
+    name: "Shanghai GetMyAI Technology Co., Ltd.",
   },
   contact: {
     email: "support@getmyai.shop",

@@ -163,10 +163,10 @@ html.light .pricing-card .card-header[data-v-b58c5c72] {
   display: inline-flex !important;
   align-items: center !important;
   min-height: 22px !important;
-  background: rgba(56, 189, 248, 0.1) !important;
+  background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
-  padding: 4px 8px !important;
+  padding: 0 !important;
   border-radius: 6px !important;
   color: var(--getmyai-blue-strong) !important;
   font-size: 12px !important;
@@ -181,8 +181,9 @@ html.light .pricing-card .card-header[data-v-b58c5c72] {
 
 .pricing-card .popular-TAG[data-v-b58c5c72] {
   color: var(--getmyai-blue-strong) !important;
-  background: rgba(56, 189, 248, 0.1) !important;
-  border-color: rgba(56, 189, 248, 0.26) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .pricing-card .card-header .plan-price .price-free[data-v-b58c5c72],
@@ -193,11 +194,53 @@ html.light .pricing-card .card-header[data-v-b58c5c72] {
 
 .pricing-card .card-footer .btn-select[data-v-b58c5c72]::before {
   background: linear-gradient(135deg, var(--getmyai-blue-soft), var(--getmyai-blue)) !important;
+  left: -100% !important;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.pricing-card .card-footer .btn-select[data-v-b58c5c72]:hover {
-  background-color: var(--getmyai-blue) !important;
+.pricing-card .card-footer .btn-select[data-v-b58c5c72] {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.pricing-card .card-footer .btn-select[data-v-b58c5c72] span {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.pricing-card .card-footer .btn-select[data-v-b58c5c72]:not(:disabled) {
+  background: rgba(56, 189, 248, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.28) !important;
+  color: var(--getmyai-blue-strong) !important;
+  -webkit-text-fill-color: var(--getmyai-blue-strong) !important;
+  box-shadow: none !important;
+}
+
+.pricing-card .card-footer .btn-select[data-v-b58c5c72]:hover,
+.pricing-card .card-footer:hover .btn-select[data-v-b58c5c72]:not(:disabled) {
+  background-color: rgba(56, 189, 248, 0.1) !important;
   box-shadow: 0 8px 24px rgba(56, 189, 248, 0.34) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+.pricing-card .card-footer .btn-select[data-v-b58c5c72]:hover::before,
+.pricing-card .card-footer:hover .btn-select[data-v-b58c5c72]:not(:disabled)::before {
+  left: 0 !important;
+}
+
+.pricing-card .card-footer .btn-select[data-v-b58c5c72]:hover span,
+.pricing-card .card-footer:hover .btn-select[data-v-b58c5c72]:not(:disabled) span {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.pricing-card .card-footer .btn-select[data-v-b58c5c72]:disabled {
+  background: #dce3e9 !important;
+  border-color: transparent !important;
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569 !important;
 }
 
 .page-hero .hero-tag[data-v-ce8f228e]:hover {
@@ -206,8 +249,25 @@ html.light .pricing-card .card-header[data-v-b58c5c72] {
   box-shadow: 0 5px 15px rgba(56, 189, 248, 0.24) !important;
 }
 
+html.dark .page-hero .hero-tag[data-v-ce8f228e] {
+  background: #18181b !important;
+  border-color: #4a5568 !important;
+  color: #a0aec0 !important;
+}
+
+html.dark .page-hero .hero-tag[data-v-ce8f228e]:hover {
+  background: rgba(56, 189, 248, 0.2) !important;
+  border-color: var(--getmyai-blue) !important;
+}
+
 .page-hero .hero-title[data-v-ce8f228e] {
-  background:
+  display: inline-block !important;
+  position: relative !important;
+  margin-bottom: 30px !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  opacity: 0;
+  background-image:
     linear-gradient(
       45deg,
       #1a202c,
@@ -220,18 +280,19 @@ html.light .pricing-card .card-header[data-v-b58c5c72] {
       #2d3748,
       #1a202c
     ) !important;
+  background-position: 0 50%;
   background-clip: text !important;
   -webkit-background-clip: text !important;
   background-size: 300% 100% !important;
   -webkit-text-fill-color: transparent !important;
   animation:
-    heroFadeIn-ce8f228e 1s ease-out 0.5s forwards,
-    heroGradientShift-ce8f228e 3s ease-in-out infinite !important;
+    getmyaiTitleFadeIn 1s ease-out 0.5s forwards,
+    getmyaiTitleGradientShift 3s ease-in-out infinite !important;
 }
 
 .dark .page-hero .hero-title[data-v-ce8f228e],
 html.dark .page-hero .hero-title[data-v-ce8f228e] {
-  background:
+  background-image:
     linear-gradient(
       45deg,
       #ffffff,
@@ -248,6 +309,36 @@ html.dark .page-hero .hero-title[data-v-ce8f228e] {
   -webkit-background-clip: text !important;
   background-size: 300% 100% !important;
   -webkit-text-fill-color: transparent !important;
+}
+
+@keyframes getmyaiTitleFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes getmyaiTitleGradientShift {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-hero .hero-title[data-v-ce8f228e] {
+    font-size: 24px !important;
+  }
 }
 
 .page-hero .title-curve path[data-v-ce8f228e] {
@@ -515,9 +606,53 @@ html.dark .pricing-card .card-header .plan-badge[data-v-b58c5c72] {
 
 html.dark .pricing-card .card-header .plan-badge[data-v-b58c5c72] > span {
   display: inline-flex !important;
-  background: rgba(56, 189, 248, 0.14) !important;
+  background: transparent !important;
   color: var(--getmyai-blue-soft) !important;
-  border-color: rgba(56, 189, 248, 0.24) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+html.dark .pricing-card .popular-TAG[data-v-b58c5c72],
+html.light .pricing-card .popular-TAG[data-v-b58c5c72],
+html:not(.dark) .pricing-card .popular-TAG[data-v-b58c5c72] {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+html.dark .pricing-card .card-footer .btn-select[data-v-b58c5c72],
+html.dark .pricing-card .card-footer .btn-select[data-v-b58c5c72] span {
+  color: var(--getmyai-blue-soft) !important;
+  -webkit-text-fill-color: var(--getmyai-blue-soft) !important;
+}
+
+html.dark .pricing-card .card-footer .btn-select[data-v-b58c5c72]:not(:disabled) {
+  background: rgba(56, 189, 248, 0.1) !important;
+  border-color: rgba(125, 211, 252, 0.32) !important;
+  box-shadow: none !important;
+}
+
+html.dark .pricing-card .card-footer .btn-select[data-v-b58c5c72]:not(:disabled):hover,
+html.dark .pricing-card .card-footer:hover .btn-select[data-v-b58c5c72]:not(:disabled) {
+  background: rgba(56, 189, 248, 0.14) !important;
+  box-shadow: 0 10px 28px rgba(56, 189, 248, 0.26) !important;
+}
+
+html.dark .pricing-card .card-footer .btn-select[data-v-b58c5c72]:not(:disabled):hover,
+html.dark .pricing-card .card-footer .btn-select[data-v-b58c5c72]:not(:disabled):hover span,
+html.dark .pricing-card .card-footer:hover .btn-select[data-v-b58c5c72]:not(:disabled),
+html.dark .pricing-card .card-footer:hover .btn-select[data-v-b58c5c72]:not(:disabled) span {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html.dark .pricing-card .card-footer .btn-select[data-v-b58c5c72]:disabled,
+html.dark .pricing-card .card-footer .btn-select[data-v-b58c5c72]:disabled span {
+  background: #2f3744 !important;
+  color: #cbd5e1 !important;
+  -webkit-text-fill-color: #cbd5e1 !important;
+  border-color: rgba(148, 163, 184, 0.18) !important;
 }
 
 html.light .faq-section .faq-content .faq-item[data-v-b58c5c72],
