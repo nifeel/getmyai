@@ -1,4 +1,8 @@
-﻿---
-return Astro.redirect('/ppt/deck.html');
+---
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const deckHtml = readFileSync(join(process.cwd(), 'public', 'ppt', 'deck.html'), 'utf-8');
 ---
 
+<Fragment set:html={deckHtml} />
