@@ -46,6 +46,8 @@ When adding a new marketing/content page:
 - Header and footer should stay visually aligned across pages.
 - Shared markup is not enough for shared behavior: if header/footer/theme visuals must match, put the common CSS in a shared SCSS partial and import it from each page stylesheet.
 - Footer structure belongs in `src/reference/shared-footer.html`; footer layout and theme rules belong in a shared style source such as `src/styles/_shared-footer.scss`.
+- Reference snapshots can contain the original site's exact visual tokens. Before inventing a header/footer treatment, inspect the matching source reference or live reference page first. For example, the ylsCode light header used a pale translucent gray layer (`#f0f0f080`) plus backdrop blur and a subtle bottom border; a nearly white transparent layer can make the glass effect look invisible on a white hero.
+- For shared reference-page header tweaks, update both `src/styles/getmyai-home.scss` and `src/styles/getmyai-pricing.scss`, then rebuild so `public/getmyai-home.css` and `public/getmyai-pricing.css` are regenerated.
 - Theme toggle behavior should be consistent across home and pricing.
 - Theme-specific styles should change color tokens, backgrounds, borders, and filters only. Avoid changing layout properties such as `display`, `gap`, `padding`, `margin`, width, or alignment between light and dark themes unless explicitly intended.
 - Accent color should remain the current light blue direction, not green.

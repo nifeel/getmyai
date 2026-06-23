@@ -689,18 +689,30 @@ html.dark [data-getmyai-theme-toggle] span {
   color: inherit !important;
 }
 
-html .sticky-widget[data-v-1ff4e71c],
-html .sticky-widget[data-v-1ff4e71c] .nav[data-v-9f810e60] {
-  background: rgba(255, 255, 255, 0.86) !important;
-  border-bottom-color: #e2e8f0 !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  backdrop-filter: blur(10px) !important;
+html .sticky-widget[data-v-1ff4e71c] {
+  background: transparent !important;
 }
 
-html.dark .sticky-widget[data-v-1ff4e71c],
+html .sticky-widget[data-v-1ff4e71c] .nav[data-v-9f810e60] {
+  position: relative !important;
+  isolation: isolate !important;
+  background: rgba(240, 244, 248, 0.54) !important;
+  background-color: rgba(240, 244, 248, 0.54) !important;
+  border-bottom-color: rgba(148, 163, 184, 0.36) !important;
+  box-shadow:
+    0 14px 36px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) contrast(108%) !important;
+  backdrop-filter: blur(28px) saturate(180%) contrast(108%) !important;
+}
+
 html.dark .sticky-widget[data-v-1ff4e71c] .nav[data-v-9f810e60] {
-  background: #1a1a1a !important;
-  border-bottom-color: #333 !important;
+  background: rgba(10, 10, 12, 0.72) !important;
+  background-color: rgba(10, 10, 12, 0.72) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 html [data-getmyai-theme-toggle],

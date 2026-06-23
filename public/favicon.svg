@@ -1,18 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="getmyai favicon">
   <defs>
-    <linearGradient id="g" x1="18" y1="14" x2="110" y2="116" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7dd3fc"/>
-      <stop offset=".48" stop-color="#38bdf8"/>
-      <stop offset="1" stop-color="#2563eb"/>
+    <linearGradient id="base" x1="96" y1="64" x2="416" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7DD3FC"/>
+      <stop offset="0.46" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#2563EB"/>
     </linearGradient>
-    <linearGradient id="s" x1="42" y1="28" x2="88" y2="99" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fff"/>
-      <stop offset="1" stop-color="#dff7ff"/>
+    <linearGradient id="mark" x1="160" y1="132" x2="344" y2="376" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DFF7FF"/>
     </linearGradient>
   </defs>
-  <rect x="8" y="8" width="112" height="112" rx="30" fill="url(#g)"/>
-  <path d="M32 70c0-24 15-42 35-42 14 0 25 7 31 19l-15 8c-3-7-8-11-16-11-11 0-19 10-19 26s8 25 20 25c8 0 14-4 17-11h-19V70h36v8c0 20-14 34-34 34-22 0-36-17-36-42Z" fill="url(#s)"/>
-  <path d="M30 28h18l15 26 15-26h18L72 66v33H54V66L30 28Z" fill="#eafaff" opacity=".92"/>
-  <circle cx="96" cy="32" r="8" fill="#e0f7ff"/>
-  <circle cx="104" cy="52" r="4" fill="#bfebff" opacity=".86"/>
+  <rect x="40" y="40" width="432" height="432" rx="108" fill="url(#base)"/>
+  <path d="M158 263c0-66 47-119 113-119 40 0 75 19 96 48l-50 30c-10-13-26-22-46-22-34 0-58 27-58 63s24 64 59 64c24 0 43-11 53-29h-64v-50h123v30c0 60-45 105-112 105-67 0-114-52-114-120Z" fill="url(#mark)"/>
+  <circle cx="343" cy="158" r="24" fill="#EAFBFF"/>
+  <circle cx="382" cy="230" r="15" fill="#BFECFF" opacity="0.92"/>
+  <circle cx="326" cy="294" r="16" fill="#FFFFFF" opacity="0.9"/>
+  <path d="M343 182l39 48M382 230l-56 64" fill="none" stroke="#EAFBFF" stroke-width="16" stroke-linecap="round" opacity="0.8"/>
 </svg>

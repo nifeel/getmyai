@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="getmyai logo dark">
+  <defs>
+    <linearGradient id="outer" x1="118" y1="78" x2="396" y2="436" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7DD3FC"/>
+      <stop offset="0.42" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="176" y1="148" x2="342" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#DFF7FF"/>
+      <stop offset="1" stop-color="#93E4FF"/>
+    </linearGradient>
+    <linearGradient id="facet" x1="172" y1="178" x2="332" y2="336" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F172A" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <path d="M256 42 432 144v224L256 470 80 368V144L256 42Z" fill="url(#outer)"/>
+  <path d="M256 88 392 167v178L256 424 120 345V167L256 88Z" fill="#F8FBFF"/>
+  <path d="M256 128 356 186v134l-100 58-100-58V186l100-58Z" fill="url(#inner)"/>
+  <path d="M256 128v250l100-58V186L256 128Z" fill="url(#facet)"/>
+  <path d="M256 176 314 210v78l-58 34-58-34v-78l58-34Z" fill="#FFFFFF"/>
+  <path d="M198 210 256 244l58-34M256 244v78" fill="none" stroke="#0284C7" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="244" r="24" fill="#1D4ED8"/>
+</svg>

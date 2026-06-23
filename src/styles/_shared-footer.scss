@@ -11,8 +11,9 @@
   box-sizing: border-box !important;
   width: 100vw !important;
   max-width: none !important;
-  margin: 40px calc(50% - 50vw) 0 !important;
+  margin: 0 calc(50% - 50vw) !important;
   padding: 40px 20px !important;
+  min-height: 179px !important;
   background: linear-gradient(180deg, #ffffff, #f1f8ff) !important;
   border-top: 1px solid var(--footer-border) !important;
   color: var(--footer-muted) !important;
@@ -25,6 +26,7 @@
 }
 
 .modern-footer .footer-content[data-v-466ece80] {
+  box-sizing: border-box !important;
   display: flex !important;
   align-items: flex-start !important;
   justify-content: space-between !important;
@@ -36,6 +38,7 @@
 
 .brand-section[data-v-466ece80],
 .links-section[data-v-466ece80] {
+  box-sizing: border-box !important;
   min-width: 0 !important;
   flex: 1 1 0 !important;
 }
@@ -99,6 +102,12 @@
 }
 
 .service-link[data-v-466ece80] {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 21px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  line-height: 1.5 !important;
   color: var(--footer-link) !important;
   font-size: 14px !important;
   font-weight: 700 !important;
@@ -120,12 +129,18 @@
   align-items: center !important;
   justify-content: center !important;
   gap: 6px !important;
+  box-sizing: border-box !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: 40px !important;
+  min-height: 40px !important;
   padding: 10px 16px !important;
   border: 0 !important;
   border-radius: 99px !important;
   background-color: var(--footer-action-bg) !important;
   color: var(--footer-action-text) !important;
   font-size: 16px !important;
+  line-height: 20px !important;
   font-weight: 500 !important;
   text-decoration: none !important;
   white-space: nowrap !important;
@@ -136,6 +151,13 @@
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
+}
+
+.tools-group[data-v-466ece80] button {
+  box-sizing: border-box !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  line-height: 20px !important;
 }
 
 .service-link[data-v-466ece80]:hover {

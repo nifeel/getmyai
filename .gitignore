@@ -12,3 +12,6 @@ astro_dev.err
 
 .DS_Store
 Thumbs.db
+AGENTS.md
+upload-to-git.cmd
+upload-to-git.ps1

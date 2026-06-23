@@ -6,7 +6,7 @@ export const site = {
     name: "Shanghai GetMyAI Technology Co., Ltd.",
   },
   contact: {
-    email: "support@getmyai.shop",
+    email: "admin@getmyai.shop",
   },
   links: {
     docs: "https://getmyai.shop/docs",
