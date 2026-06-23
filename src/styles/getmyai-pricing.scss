@@ -1,3 +1,5 @@
+@use "shared-footer";
+
 :root {
   --getmyai-blue: #38bdf8;
   --getmyai-blue-strong: #0ea5e9;
@@ -78,53 +80,6 @@ button,
 .intercom-lightweight-app,
 iframe#intercom-frame {
   display: none !important;
-}
-
-.modern-footer {
-  border-top-color: rgba(56, 189, 248, 0.18) !important;
-}
-
-.content-bottom[data-v-466ece80] {
-  --footer-bg: #f8fbff;
-  --footer-border: rgba(15, 23, 42, 0.08);
-  --footer-title: #0f172a;
-  --footer-text: #334155;
-  --footer-muted: #526071;
-  --footer-subtle: #64748b;
-  --footer-link: #334155;
-  --footer-action-bg: #e0f2fe;
-  --footer-action-text: #0369a1;
-  box-sizing: border-box !important;
-  width: 100vw !important;
-  max-width: none !important;
-  margin-right: calc(50% - 50vw) !important;
-  margin-left: calc(50% - 50vw) !important;
-  background: linear-gradient(180deg, #ffffff, #f1f8ff) !important;
-  border-top-color: var(--footer-border) !important;
-  color: #0f172a !important;
-}
-
-.modern-footer[data-v-466ece80],
-.content-bottom[data-v-466ece80] {
-  background: linear-gradient(180deg, #ffffff, #f1f8ff) !important;
-  color: #0f172a !important;
-}
-
-.brand-name[data-v-466ece80],
-.company-name[data-v-466ece80] {
-  color: #0f172a !important;
-}
-
-.copyright[data-v-466ece80],
-.address[data-v-466ece80],
-.service-link[data-v-466ece80] {
-  color: #526071 !important;
-}
-
-.brand-name,
-.company-name,
-.address {
-  color: inherit !important;
 }
 
 .service-link:hover,
@@ -514,45 +469,6 @@ html.dark .faq-section .faq-content .faq-item.active[data-v-b58c5c72] {
 html.dark .faq-section .faq-content .faq-item .faq-question h3[data-v-b58c5c72],
 html.dark .faq-section .faq-content .faq-item .faq-answer p[data-v-b58c5c72] {
   color: #f9fafb !important;
-}
-
-html.dark .modern-footer,
-html.dark footer,
-html.dark .content-bottom[data-v-466ece80],
-html.dark .modern-footer[data-v-466ece80] {
-  --footer-bg: #0d0d0d;
-  --footer-border: #232323;
-  --footer-title: #f8fafc;
-  --footer-text: #e5edf7;
-  --footer-muted: #d7e0ea;
-  --footer-subtle: #c3cfdd;
-  --footer-link: #dbe7f5;
-  --footer-action-bg: #334155;
-  --footer-action-text: #f8fafc;
-  background: #0d0d0d !important;
-  border-color: #232323 !important;
-  color: var(--footer-muted) !important;
-}
-
-html.dark .brand-name[data-v-466ece80],
-html.dark .company-name[data-v-466ece80] {
-  color: var(--footer-title) !important;
-}
-
-html.dark .copyright[data-v-466ece80],
-html.dark .address[data-v-466ece80],
-html.dark .service-link[data-v-466ece80] {
-  color: var(--footer-muted) !important;
-}
-
-html.dark .service-link[data-v-466ece80]:hover {
-  background-color: rgba(56, 189, 248, 0.1) !important;
-  color: var(--getmyai-blue) !important;
-}
-
-html.dark .action-btn[data-v-466ece80] {
-  background: var(--footer-action-bg) !important;
-  color: var(--footer-action-text) !important;
 }
 
 html.dark h1,

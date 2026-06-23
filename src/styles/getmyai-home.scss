@@ -1,3 +1,6 @@
+@use "sass:string";
+@use "shared-footer";
+
 $accent: #38bdf8;
 $accent-strong: #0ea5e9;
 $accent-deep: #2563eb;
@@ -51,30 +54,49 @@ html.dark .brand-title[data-v-42a71624] {
 }
 
 .getmyai-question-list {
-  order: 1 !important;
-  align-self: start !important;
-  height: auto !important;
+  order: 2 !important;
+  align-self: stretch !important;
+  display: grid !important;
+  gap: 14px !important;
+  height: 520px !important;
   min-height: 0 !important;
-  padding: 16px !important;
+  padding: 14px !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
   background:
     radial-gradient(circle at 20% 0%, rgba($accent, 0.18), transparent 34%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(239, 246, 255, 0.82)) !important;
 }
 
 .getmyai-questions-section {
-  grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.58fr) !important;
-  align-items: start !important;
+  width: string.unquote("min(1180px, calc(100% - 32px))") !important;
+  margin: clamp(48px, 7vw, 92px) auto clamp(28px, 5vw, 56px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.22fr) minmax(300px, 0.78fr) !important;
+  gap: 22px !important;
+  align-items: stretch !important;
 }
 
 .getmyai-question-tab {
   position: relative;
   isolation: isolate;
-  min-height: 112px !important;
-  padding: 18px 52px 18px 20px !important;
-  border-radius: 18px !important;
+  width: 100% !important;
+  min-height: 118px !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  gap: 8px 14px !important;
+  align-content: center !important;
+  text-align: left !important;
+  padding: 18px 52px 18px 18px !important;
+  border: 1px solid rgba(15, 23, 42, 0.07) !important;
+  border-radius: 16px !important;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(248, 250, 252, 0.72)) !important;
+  cursor: pointer;
   overflow: hidden;
+  transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease, box-shadow 0.24s ease;
 
   &::before {
     content: "";
@@ -107,9 +129,19 @@ html.dark .brand-title[data-v-42a71624] {
   }
 
   span {
+    grid-row: span 2;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0 !important;
+    border-radius: 14px;
     background:
       linear-gradient(135deg, rgba($accent, 0.2), rgba($accent-deep, 0.12)) !important;
     color: $accent-strong !important;
+    font: 900 13px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0.04em;
     box-shadow: inset 0 0 0 1px rgba($accent, 0.18);
   }
 
@@ -117,11 +149,15 @@ html.dark .brand-title[data-v-42a71624] {
     color: $ink !important;
     font-size: 18px !important;
     font-weight: 800 !important;
+    line-height: 1.25;
   }
 
   em {
     max-width: 24em;
     color: $muted !important;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 1.55;
   }
 
   &:hover,
@@ -130,6 +166,7 @@ html.dark .brand-title[data-v-42a71624] {
     background:
       radial-gradient(circle at 88% 20%, rgba($accent, 0.14), transparent 34%),
       rgba(255, 255, 255, 0.98) !important;
+    transform: translateY(-3px);
   }
 
   &:hover::before,
@@ -144,10 +181,13 @@ html.dark .brand-title[data-v-42a71624] {
 }
 
 .getmyai-story-card {
-  order: 2 !important;
-  height: auto !important;
-  min-height: 590px !important;
-  overflow: visible !important;
+  position: relative;
+  order: 1 !important;
+  height: 520px !important;
+  min-height: 520px !important;
+  overflow: hidden !important;
+  padding: clamp(26px, 3.6vw, 36px) !important;
+  border-radius: 20px !important;
   @include glass-border(rgba($accent, 0.18));
   background:
     radial-gradient(circle at 14% 8%, rgba($accent, 0.2), transparent 32%),
@@ -166,12 +206,44 @@ html.dark .brand-title[data-v-42a71624] {
 }
 
 .getmyai-tab-panel {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  transform: none !important;
+  animation: getmyai-panel-in 0.28s ease both;
+
+  &::before {
+    display: none !important;
+  }
+
+  &:hover {
+    border-color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
   &[hidden] {
     display: none !important;
   }
 
   &.active {
     display: block !important;
+  }
+}
+
+@keyframes getmyai-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -228,7 +300,7 @@ html.dark .brand-title[data-v-42a71624] {
   position: relative;
   isolation: isolate;
   min-height: 164px;
-  padding: 2px;
+  padding: 30px !important;
   overflow: hidden;
 
   &::before {
@@ -247,6 +319,11 @@ html.dark .brand-title[data-v-42a71624] {
     opacity: 1;
   }
 
+  .feature-content[data-v-f4dcf0aa] {
+    position: relative;
+    z-index: 1;
+  }
+
   h3[data-v-f4dcf0aa] {
     font-size: 19px !important;
     font-weight: 850 !important;
@@ -257,6 +334,10 @@ html.dark .brand-title[data-v-42a71624] {
     color: $muted !important;
     line-height: 1.72 !important;
   }
+}
+
+.marquee-item[data-v-7333e671] span[data-v-7333e671] {
+  color: var(--yls-text-secondary, #374151) !important;
 }
 
 html.light,
@@ -285,7 +366,7 @@ html:not(.dark) {
 
   .getmyai-question-list,
   .getmyai-story-card,
-  .getmyai-questions-section article {
+  .getmyai-questions-section article:not(.getmyai-tab-panel) {
     border-color: var(--yls-border-soft) !important;
     background: var(--yls-block) !important;
     box-shadow: var(--yls-shadow-emphasis) !important;
@@ -334,40 +415,12 @@ html:not(.dark) {
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1) !important;
   }
 
-  .content-bottom[data-v-466ece80] {
-    --footer-bg: #f8fbff;
-    --footer-border: rgba(15, 23, 42, 0.08);
-    --footer-title: #0f172a;
-    --footer-text: #334155;
-    --footer-muted: #526071;
-    --footer-subtle: #64748b;
-    --footer-link: #334155;
-    --footer-action-bg: #e0f2fe;
-    --footer-action-text: #0369a1;
-  }
-
-  .modern-footer[data-v-466ece80],
-  .content-bottom[data-v-466ece80] {
-    background: linear-gradient(180deg, #ffffff, #f1f8ff) !important;
-    color: $ink !important;
-  }
-
-  .brand-name[data-v-466ece80],
-  .company-name[data-v-466ece80] {
-    color: $ink !important;
-  }
-
-  .copyright[data-v-466ece80],
-  .address[data-v-466ece80],
-  .service-link[data-v-466ece80] {
-    color: $muted !important;
-  }
 }
 
 html.dark {
   .getmyai-question-list,
   .getmyai-story-card,
-  .getmyai-questions-section article {
+  .getmyai-questions-section article:not(.getmyai-tab-panel) {
     border-color: rgba($accent, 0.18) !important;
     box-shadow: 0 22px 58px rgba(0, 0, 0, 0.3) !important;
   }
@@ -422,6 +475,27 @@ html.dark {
       color: #aeb8c5 !important;
     }
   }
+
+  .marquee-item[data-v-7333e671] span[data-v-7333e671] {
+    color: #cbd5e1 !important;
+  }
+
+}
+
+html.dark .marquee-item[data-v-7333e671] img[data-v-7333e671],
+html.dark .marquee-item[data-v-7333e671] img.preserve-color[data-v-7333e671],
+html.dark .marquee-item[data-v-7333e671]:hover img[data-v-7333e671],
+html.dark .marquee-item[data-v-7333e671]:hover img.preserve-color[data-v-7333e671],
+html.dark .marquee-item:hover img[data-v-7333e671],
+html.dark .marquee-item:hover img.preserve-color[data-v-7333e671],
+.dark .marquee-item[data-v-7333e671] img[data-v-7333e671],
+.dark .marquee-item[data-v-7333e671] img.preserve-color[data-v-7333e671],
+.dark .marquee-item[data-v-7333e671]:hover img[data-v-7333e671],
+.dark .marquee-item[data-v-7333e671]:hover img.preserve-color[data-v-7333e671],
+.dark .marquee-item:hover img[data-v-7333e671],
+.dark .marquee-item:hover img.preserve-color[data-v-7333e671] {
+  filter: grayscale(100%) brightness(0) invert(1) !important;
+  opacity: 0.98 !important;
 }
 
 html .nav .centerNav .nav-item[data-v-9f810e60],
